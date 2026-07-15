@@ -15,7 +15,7 @@
     function createFileBlock(fileName, content) {
         const block = document.createElement('div');
         block.className = 'file-block';
-        block.innerHTML = '<h4>' + fileName + '</h4><pre><code>' + escapeHtml(content) + '</code></pre>';
+        block.innerHTML = '<h4>' + fileName + '</h4><pre class="bg-black p-2 rounded"><code>' + escapeHtml(content) + '</code></pre>';
         return block;
     }
 
