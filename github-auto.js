@@ -55,7 +55,7 @@
                 const links = [...html.matchAll(/<a\s+[^>]*href=["']([^"']+)["'][^>]*>/gi)].map(match => match[1]);
                 const jsFiles = links
                     .map(link => link.split('/').pop())
-                    .filter(name => name && name.endsWith('.js') && !name.startsWith('.'));
+                    .filter(name => name && name.endsWith('.js') && !name.startsWith('.') && name !== 'github-auto.js');
 
                 if (jsFiles.length > 0) {
                     return jsFiles.sort();
@@ -89,7 +89,7 @@
 
                 if (Array.isArray(data)) {
                     files = data
-                        .filter(item => item.type === 'file' && item.name.endsWith('.js'))
+                        .filter(item => item.type === 'file' && item.name.endsWith('.js') && item.name !== 'github-auto.js')
                         .map(item => item.name)
                         .sort();
                 }
